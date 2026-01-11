@@ -112,41 +112,6 @@ When writing `installation.markdown` and `usage.markdown`, use `\n` for newlines
 "markdown": "## Installation\n\n```bash\nnpm install my-plugin\n```\n\nThen restart OpenCode."
 ```
 
-### Step 7: Validate Your Plugin Locally
-
-**This step is critical** - validate before submitting:
-
-```bash
-# Navigate to scripts directory
-cd scripts
-
-# Install validation dependencies (first time only)
-npm install
-
-# Run validation
-npm run validate
-```
-
-**Expected output if valid**:
-```
-✅ your-plugin-name.plugin.json - Valid
-✅ All plugins are valid!
-```
-
-**If you see errors**:
-- Read the error message carefully
-- Fix the issues in your JSON file
-- Run `npm run validate` again
-- Repeat until all errors are resolved
-
-**Common validation errors**:
-- Filename doesn't match `name` field
-- Missing required fields
-- Invalid category name
-- Invalid date format (must be YYYY-MM-DD)
-- Description too short (< 10 chars) or too long (> 500 chars)
-- Invalid URL format
-
 ### Step 8: Commit Your Plugin
 
 ```bash
@@ -167,24 +132,6 @@ git push origin main
 3. **Title**: Use format: `Add [Your Plugin Display Name]`
 4. **Description**: Briefly describe what your plugin does
 5. Click **"Create pull request"**
-
-### Step 10: Wait for Automated Validation
-
-Our CI will automatically run when you submit the PR and check:
-- ✅ JSON is valid and matches schema
-- ✅ Filename matches the `name` field  
-- ✅ No duplicate plugin names
-- ✅ All required fields are present
-
-**If CI fails**: 
-- Check the error details in the GitHub Actions tab
-- Fix the issues in your fork
-- Push the changes (the PR will update automatically)
-
-**If CI passes**:
-- Maintainers will review your submission
-- You may be asked to make changes
-- Once approved, your plugin will be merged and appear on the live marketplace!
 
 ---
 
@@ -215,7 +162,7 @@ cd opencode-plugin-marketplace
 
 ### Step 4: Validate, Commit, and Submit PR
 
-Follow Steps 7-10 from "How to Add a Plugin" above.
+Follow the validation, commit, and PR steps above.
 
 ---
 
