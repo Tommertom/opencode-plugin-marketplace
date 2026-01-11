@@ -1,11 +1,13 @@
 import { createSignal, For, Show } from 'solid-js';
 import { plugins, categories } from './data/plugins';
-import { PluginCard } from './components/PluginCard';
+import { PluginTile } from './components/PluginTile';
+import { PluginDetail } from './components/PluginDetail';
+import type { Plugin } from './data/types';
 import './App.css';
 
 function App() {
   const [selectedCategory, setSelectedCategory] = createSignal<string>('all');
-  const [expandedPlugin, setExpandedPlugin] = createSignal<string | null>(null);
+  const [selectedPlugin, setSelectedPlugin] = createSignal<Plugin | null>(null);
 
   const filteredPlugins = () => {
     const category = selectedCategory();
@@ -13,8 +15,12 @@ function App() {
     return plugins.filter(p => p.categories.includes(category));
   };
 
-  const togglePlugin = (name: string) => {
-    setExpandedPlugin(prev => prev === name ? null : name);
+  const openPlugin = (plugin: Plugin) => {
+    setSelectedPlugin(plugin);
+  };
+
+  const closePlugin = () => {
+    setSelectedPlugin(null);
   };
 
   return (
@@ -62,10 +68,9 @@ function App() {
             <div class="plugin-grid">
               <For each={filteredPlugins()}>
                 {(plugin) => (
-                  <PluginCard
+                  <PluginTile
                     plugin={plugin}
-                    expanded={expandedPlugin() === plugin.name}
-                    onToggle={() => togglePlugin(plugin.name)}
+                    onClick={() => openPlugin(plugin)}
                   />
                 )}
               </For>
@@ -74,6 +79,14 @@ function App() {
         </main>
       </div>
 
+      <Show when={selectedPlugin()}>
+        <PluginDetail
+          plugin={selectedPlugin()!}
+          onClose={closePlugin}
+        />
+      </Show>
+
+      <div class="footer-spacer"></div>
       <footer class="footer">
         <p>
           Want to contribute? Visit our{' '}
