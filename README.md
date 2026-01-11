@@ -20,6 +20,8 @@ Visit the marketplace at: [https://opencode-plugin-market.web.app](https://openc
 
 Install plugins directly from your terminal with the `/plugin` command!
 
+> **⚠️ Experimental:** This feature is experimental and may change in future versions.
+
 ### Quick Install
 
 **Global installation (recommended):**
