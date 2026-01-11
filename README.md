@@ -16,6 +16,28 @@ A community-driven marketplace for discovering and sharing OpenCode plugins.
 
 Visit the marketplace at: [https://opencode-plugin-market.web.app](https://opencode-plugin-market.web.app)
 
+## 🔧 Plugin Manager CLI
+
+Install plugins directly from your terminal with the `/plugin` command!
+
+### Quick Install
+
+**Global installation (recommended):**
+```bash
+curl -fsSL https://raw.githubusercontent.com/Tommertom/opencode-plugin-marketplace/main/command/plugin.md \
+  -o ~/.config/opencode/command/plugin.md
+```
+
+Restart OpenCode and use:
+```
+/plugin list              # List all available plugins
+/plugin install <name>    # Install a plugin
+/plugin create <name>     # Create a new plugin
+/plugin remove <name>     # Remove a plugin
+```
+
+[View full documentation →](https://opencode-plugin-market.web.app)
+
 ## 🤝 Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed instructions.
@@ -45,6 +67,7 @@ All plugin submissions must validate against `schema/plugin.schema.json`.
 - `links.documentation` - Docs URL
 - `opencode.maximumVersion` - Max compatible version
 - `usage.markdown` - Usage guide (Markdown)
+- `installableFromMarketplace` - Boolean flag for `/plugin install` compatibility (defaults to `false`)
 
 ### Available Categories
 
