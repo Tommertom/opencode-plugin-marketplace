@@ -59,6 +59,23 @@ function App() {
     return sortedPlugins(filtered);
   };
 
+  const allPluginsCount = () => {
+    const query = searchQuery().toLowerCase().trim();
+
+    let filtered = plugins;
+
+    // Apply search filter
+    if (query) {
+      filtered = filtered.filter((plugin) => {
+        // Search through the entire JSON text by stringifying the plugin object
+        const pluginText = JSON.stringify(plugin).toLowerCase();
+        return pluginText.includes(query);
+      });
+    }
+
+    return filtered.length;
+  };
+
   const openPlugin = (plugin: Plugin) => {
     setSelectedPlugin(plugin);
     // Update page title and meta for SEO
@@ -151,14 +168,14 @@ function App() {
         <aside class="sidebar">
           <h2>Categories</h2>
           <ul class="category-list">
-             <li>
-               <button
-                 class={selectedCategory() === "all" ? "active" : ""}
-                 onClick={() => setSelectedCategory("all")}
-               >
-                 All Plugins ({filteredPlugins().length})
-               </button>
-             </li>
+              <li>
+                <button
+                  class={selectedCategory() === "all" ? "active" : ""}
+                  onClick={() => setSelectedCategory("all")}
+                >
+                  All Plugins ({allPluginsCount()})
+                </button>
+              </li>
             <For each={categories}>
               {(category) => {
                 const query = searchQuery().toLowerCase().trim();
