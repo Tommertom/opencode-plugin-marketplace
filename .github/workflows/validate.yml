@@ -1,0 +1,27 @@
+name: Validate Plugin Submissions
+
+on:
+  pull_request:
+    paths:
+      - 'plugins/**/*.plugin.json'
+      - 'schema/plugin.schema.json'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install validation dependencies
+        working-directory: ./scripts
+        run: npm install
+
+      - name: Validate plugin files
+        working-directory: ./scripts
+        run: npm run validate
