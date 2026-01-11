@@ -10,6 +10,7 @@ function App() {
   const [selectedCategory, setSelectedCategory] = createSignal<string>("all");
   const [selectedPlugin, setSelectedPlugin] = createSignal<Plugin | null>(null);
   const [pluginStars, setPluginStars] = createSignal<Map<string, number>>(new Map());
+  const [searchQuery, setSearchQuery] = createSignal<string>("");
 
   onMount(async () => {
     const starsMap = new Map<string, number>();
@@ -40,9 +41,21 @@ function App() {
 
   const filteredPlugins = () => {
     const category = selectedCategory();
-    const filtered = category === "all" 
-      ? plugins 
+    const query = searchQuery().toLowerCase().trim();
+
+    let filtered = category === "all"
+      ? plugins
       : plugins.filter((p) => p.categories.includes(category));
+
+    // Apply search filter
+    if (query) {
+      filtered = filtered.filter((plugin) => {
+        // Search through the entire JSON text by stringifying the plugin object
+        const pluginText = JSON.stringify(plugin).toLowerCase();
+        return pluginText.includes(query);
+      });
+    }
+
     return sortedPlugins(filtered);
   };
 
@@ -115,30 +128,59 @@ function App() {
         </p>
       </header>
 
+      <div class="search-container">
+        <input
+          type="text"
+          placeholder="Search plugins... (searches all plugin data)"
+          value={searchQuery()}
+          onInput={(e) => setSearchQuery(e.currentTarget.value)}
+          class="search-input"
+        />
+        <Show when={searchQuery()}>
+          <button
+            onClick={() => setSearchQuery("")}
+            class="search-clear"
+            aria-label="Clear search"
+          >
+            ✕
+          </button>
+        </Show>
+      </div>
+
       <div class="container">
         <aside class="sidebar">
           <h2>Categories</h2>
           <ul class="category-list">
-            <li>
-              <button
-                class={selectedCategory() === "all" ? "active" : ""}
-                onClick={() => setSelectedCategory("all")}
-              >
-                All Plugins ({plugins.length})
-              </button>
-            </li>
+             <li>
+               <button
+                 class={selectedCategory() === "all" ? "active" : ""}
+                 onClick={() => setSelectedCategory("all")}
+               >
+                 All Plugins ({filteredPlugins().length})
+               </button>
+             </li>
             <For each={categories}>
               {(category) => {
-                const count = plugins.filter((p) =>
+                const query = searchQuery().toLowerCase().trim();
+                let categoryPlugins = plugins.filter((p) =>
                   p.categories.includes(category)
-                ).length;
+                );
+
+                // Apply search filter if there's a query
+                if (query) {
+                  categoryPlugins = categoryPlugins.filter((plugin) => {
+                    const pluginText = JSON.stringify(plugin).toLowerCase();
+                    return pluginText.includes(query);
+                  });
+                }
+
                 return (
                   <li>
                     <button
                       class={selectedCategory() === category ? "active" : ""}
                       onClick={() => setSelectedCategory(category)}
                     >
-                      {category} ({count})
+                      {category} ({categoryPlugins.length})
                     </button>
                   </li>
                 );
@@ -151,7 +193,9 @@ function App() {
           <Show
             when={filteredPlugins().length > 0}
             fallback={
-              <p class="no-results">No plugins found in this category.</p>
+              <p class="no-results">
+                {searchQuery() ? `No plugins found matching "${searchQuery()}".` : "No plugins found in this category."}
+              </p>
             }
           >
             <div class="plugin-grid">
