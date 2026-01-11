@@ -97,15 +97,11 @@ All plugin submissions must validate against `schema/plugin.schema.json`.
 ### Available Categories
 
 - Development
-- Productivity
-- UI/UX
-- Testing
-- Debugging
 - Documentation
 - Integration
+- Productivity
+- Providers
 - Utilities
-- AI/ML
-- Other
 
 ## 📝 License
 
