@@ -58,6 +58,15 @@ export function PluginDetail(props: PluginDetailProps) {
                 </span>
               </div>
 
+              <Show when={props.plugin.installableFromMarketplace}>
+                <div class="detail-meta-item">
+                  <span class="detail-meta-label">Installation</span>
+                  <span class="detail-badge installable">
+                    ⚡ Installable
+                  </span>
+                </div>
+              </Show>
+
               <div class="detail-meta-item">
                 <span class="detail-meta-label">GitHub Stars</span>
                 <Show 

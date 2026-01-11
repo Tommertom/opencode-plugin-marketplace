@@ -26,4 +26,5 @@ export interface Plugin {
   };
   maintained: boolean;
   lastUpdated: string;
+  installableFromMarketplace?: boolean;
 }

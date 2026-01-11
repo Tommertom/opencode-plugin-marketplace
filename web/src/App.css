@@ -386,6 +386,11 @@ body {
   color: var(--color-warning);
 }
 
+.badge.installable {
+  background: rgba(0, 122, 255, 0.15);
+  color: var(--color-accent);
+}
+
 .plugin-meta {
   display: grid;
   gap: 0.75rem;
@@ -770,6 +775,11 @@ body {
 .detail-badge.unmaintained {
   background: rgba(255, 159, 10, 0.15);
   color: var(--color-warning);
+}
+
+.detail-badge.installable {
+  background: rgba(0, 122, 255, 0.15);
+  color: var(--color-accent);
 }
 
 .detail-author-link {

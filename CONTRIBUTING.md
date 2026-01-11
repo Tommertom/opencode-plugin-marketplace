@@ -105,6 +105,7 @@ Copy this template into your new file and replace ALL placeholder values:
 - `links.documentation` - Documentation URL  
 - `opencode.maximumVersion` - Maximum compatible version
 - `usage.markdown` - Usage instructions with Markdown
+- `installableFromMarketplace` - Set to `true` if plugin can be installed via `/plugin install` command (defaults to `false`)
 
 ### Step 5: Choose Valid Categories
 
@@ -256,6 +257,7 @@ All plugins must validate against `schema/plugin.schema.json`.
 | `usage.markdown` | string | ❌ | Markdown content |
 | `maintained` | boolean | ✅ | `true` or `false` |
 | `lastUpdated` | string | ✅ | Format: "YYYY-MM-DD" |
+| `installableFromMarketplace` | boolean | ❌ | Defaults to `false` |
 
 ---
 

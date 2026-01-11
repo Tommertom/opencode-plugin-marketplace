@@ -140,6 +140,11 @@
       "type": "string",
       "format": "date",
       "description": "Last update date in YYYY-MM-DD format"
+    },
+    "installableFromMarketplace": {
+      "type": "boolean",
+      "description": "Whether the plugin can be installed directly via the /plugin install command",
+      "default": false
     }
   }
 }

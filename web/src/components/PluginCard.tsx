@@ -20,6 +20,9 @@ export function PluginCard(props: PluginCardProps) {
           <span class={`badge ${props.plugin.maintained ? 'maintained' : 'unmaintained'}`}>
             {props.plugin.maintained ? '✓ Maintained' : '⚠ Unmaintained'}
           </span>
+          <Show when={props.plugin.installableFromMarketplace}>
+            <span class="badge installable">⚡ Installable</span>
+          </Show>
         </div>
       </div>
 
