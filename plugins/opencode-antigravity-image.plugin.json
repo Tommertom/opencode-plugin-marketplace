@@ -1,0 +1,29 @@
+{
+  "name": "opencode-antigravity-image",
+  "displayName": "OpenCode Antigravity Image",
+  "description": "Enable OpenCode to generate images using Gemini 2.5 Flash Image and Gemini 3 Pro Image models through Google's Antigravity infrastructure. Features text-to-image generation, image editing, character consistency, and multi-account rate limit management.",
+  "categories": ["Providers", "Integration", "Productivity"],
+  "authors": [
+    {
+      "name": "jkalasas",
+      "url": "https://github.com/jkalasas"
+    }
+  ],
+  "license": "MIT",
+  "links": {
+    "repository": "https://github.com/jkalasas/opencode-antigravity-image"
+  },
+  "opencode": {
+    "minimumVersion": "1.0.0"
+  },
+  "installation": {
+    "summary": "Install via OpenCode plugin manager or npm. Requires opencode-antigravity-auth to be configured with at least one Google account.",
+    "markdown": "## Prerequisites\n\nThis plugin requires `opencode-antigravity-auth` to be installed and configured with at least one Google account.\n\n## Installation\n\n### Option 1: Add to OpenCode config (Recommended)\n\nAdd to your `~/.config/opencode/opencode.json`:\n\n```json\n{\n  \"plugin\": [\n    \"opencode-antigravity-image\"\n  ]\n}\n```\n\n### Option 2: Local development\n\n```bash\ngit clone https://github.com/jkalasas/opencode-antigravity-image\ncd opencode-antigravity-image\nbun install\n```\n\nThen add to `~/.config/opencode/opencode.json`:\n\n```json\n{\n  \"plugin\": [\n    \"/path/to/opencode-antigravity-image\"\n  ]\n}\n```\n\nRestart OpenCode after installation."
+  },
+  "usage": {
+    "markdown": "## Features\n\n- **Text-to-image generation** - Create images from text descriptions\n- **Image editing** - Modify existing images with text instructions\n- **Multiple images** - Generate up to 4 variations per request\n- **Character consistency** - Session-based generation for consistent characters\n- **Configurable output** - Custom paths, filenames, and aspect ratios\n- **Multi-account support** - Rate limit tracking and automatic account rotation\n\n## Basic Usage\n\n### Generate Image via Command\n\n```\n\\generate-image A cyberpunk cat in neon-lit Tokyo streets, file name should be cyberpunk-cat save it at ~/Pictures\n```\n\n### Using Tool Format\n\n```javascript\ngenerate_image({ \n  prompt: \"A cyberpunk cat in neon-lit Tokyo streets\" \n})\n```\n\n### With Aspect Ratio\n\n```javascript\ngenerate_image({ \n  prompt: \"A majestic mountain landscape\", \n  aspect_ratio: \"16:9\" \n})\n```\n\n### With Custom Filename\n\n```javascript\ngenerate_image({\n  prompt: \"A dragon flying over mountains\",\n  file_name: \"my-dragon\"\n})\n```\n\n### Image Editing\n\n```javascript\ngenerate_image({\n  prompt: \"Change the sky to a dramatic sunset\",\n  input_image: \"./my-photo.jpg\"\n})\n```\n\n### Multiple Variations\n\n```javascript\ngenerate_image({\n  prompt: \"A fantasy castle in the clouds\",\n  count: 4\n})\n```\n\n### Character Consistency\n\n```javascript\n// Create a character\ngenerate_image({\n  prompt: \"Create a hero character: Luna, a silver-haired warrior\",\n  session_id: \"luna-character\"\n})\n\n// Generate new scenes with the same character\ngenerate_image({\n  prompt: \"Show Luna fighting a dragon\",\n  session_id: \"luna-character\"\n})\n```\n\n## Parameters\n\n| Parameter | Type | Default | Description |\n|-----------|------|---------|-------------|\n| prompt | string | (required) | Description of the image or editing instruction |\n| aspect_ratio | string | \"1:1\" | Aspect ratio: 1:1, 2:3, 3:2, 3:4, 4:3, 4:5, 5:4, 9:16, 16:9, 21:9 |\n| output_path | string | .opencode/generated-images/ | Custom directory for saving images |\n| file_name | string | - | Custom filename (without extension) |\n| input_image | string | - | Path to existing image for editing |\n| count | number | 1 | Number of images to generate (1-4) |\n| session_id | string | - | Session ID for character consistency |\n\n## Output\n\nImages are saved to `.opencode/generated-images/` in your project by default, with filenames like:\n\n```\n{prompt-slug}-{timestamp}.jpg\n```\n\nOr with custom filename:\n\n```\n{custom-name}.jpg\n```\n\nThe tool returns markdown with:\n\n- Embedded image references\n- File paths\n- Session info (if used)\n- Model and account info\n\n## Sessions\n\nSessions are stored in `.opencode/generated-image-sessions/` within your project directory. Each session maintains conversation history for character consistency."
+  },
+  "maintained": true,
+  "lastUpdated": "2026-01-23",
+  "installableFromMarketplace": true
+}
