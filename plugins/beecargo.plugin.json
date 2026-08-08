@@ -1,0 +1,31 @@
+{
+  "name": "beecargo",
+  "displayName": "Beecargo",
+  "description": "Publish files from OpenCode and get durable Beecargo share links via hosted MCP. Connect with Beecargo OAuth — no API key to paste.",
+  "categories": ["Integration", "Productivity", "Utilities"],
+  "authors": [
+    {
+      "name": "Beecargo",
+      "url": "https://github.com/Beecargo"
+    }
+  ],
+  "license": "MIT",
+  "links": {
+    "repository": "https://github.com/Beecargo/agent-plugin",
+    "homepage": "https://beecargo.net",
+    "documentation": "https://beecargo.net/docs/mcp/overview"
+  },
+  "opencode": {
+    "minimumVersion": "1.0.0"
+  },
+  "installation": {
+    "summary": "Add the hosted MCP URL, then complete Connect with Beecargo OAuth in the browser.",
+    "markdown": "## Installation\n\n```bash\nopencode mcp add beecargo --url https://mcp.beecargo.net/mcp\nopencode mcp auth beecargo\n```\n\nApprove access in the browser when prompted. Confirm with:\n\n```bash\nopencode mcp list\n```\n\nDocs: [beecargo.net/docs/mcp/overview](https://beecargo.net/docs/mcp/overview)"
+  },
+  "usage": {
+    "markdown": "## Usage\n\n1. After OAuth, call `beecargo_register_agent` for a lasting `bc_*` key (session keeps it).\n2. Upload with `beecargo_upload` and a public HTTPS `url` (preferred).\n3. Return the share link `https://beecargo.net/d/{shortId}` to humans.\n\nGuest bootstrap without account OAuth: `https://mcp.beecargo.net/mcp/guest`."
+  },
+  "maintained": true,
+  "lastUpdated": "2026-08-08",
+  "installableFromMarketplace": false
+}
