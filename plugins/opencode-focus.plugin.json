@@ -1,7 +1,7 @@
 {
   "name": "opencode-focus",
   "displayName": "OpenCode Focus",
-  "description": "Status-aware terminal titles, minimal desktop notifications and click-to-focus window for the opencode TUI (GNOME/Wayland support).",
+  "description": "Status-aware terminal titles, minimal desktop notifications and click-to-focus window for the opencode TUI. Requires a Linux graphical session with notify-send; GNOME Shell 45-49 for focus suppression and click-to-focus.",
   "categories": ["Productivity", "UI/UX"],
   "authors": [
     {
@@ -19,7 +19,7 @@
   },
   "installation": {
     "summary": "Install from npm: `opencode plugin opencode-focus --global` (server + TUI).",
-    "markdown": "## Installation\n\n### Plugins (server + TUI)\n```bash\nopencode plugin opencode-focus --global\n```\n\nThis installs two plugins:\n- **server** — desktop notifications via `notify-send` (error, waiting decision, completion once per session, retry)\n- **TUI** — window title with state (spinner/status) and the waiting-decision notification\n\nRestart opencode to load.\n\n### GNOME extension (optional, recommended)\nEnables focus-based notification suppression and click-to-focus:\n```bash\nnpx opencode-focus setup\n```\nLog out/in so GNOME Shell discovers the extension, then validate:\n```bash\nnpx opencode-focus status\n```\n\nWithout the extension the plugins still work — they just always notify (no focus suppression)."
+    "markdown": "## Installation\n\n### Requirements\n- Linux graphical session with `notify-send` (libnotify package)\n- opencode >= 1.18\n- GNOME Shell 45-49 for the optional GNOME extension (focus suppression and click-to-focus)\n\n### Plugins (server + TUI)\n```bash\nopencode plugin opencode-focus --global\n```\n\nThis installs two plugins:\n- **server** — desktop notifications via `notify-send` (error, waiting decision, completion once per session, retry)\n- **TUI** — window title with state (spinner/status) and the waiting-decision notification\n\nRestart opencode to load.\n\n### GNOME extension (optional, recommended)\nEnables focus-based notification suppression and click-to-focus:\n```bash\nnpx opencode-focus setup\n```\nLog out/in so GNOME Shell discovers the extension, then validate:\n```bash\nnpx opencode-focus status\n```\n\nWithout the extension the plugins still work — they just always notify (no focus suppression)."
   },
   "usage": {
     "markdown": "## Usage\n\n### Window title states\n| State | Title |\n|---|---|\n| Generating | `⠋ <title>` or `⠇ <title> · ▶ <step>` |\n| Waiting for you | `◉ <title> · ⏸ waiting permission` (or `answer`) |\n| Done | `✓ <title>` |\n| Error | `✗ <title>` |\n\n### Notifications\n- **Focus suppresses**: with the GNOME extension active, no notification is sent when the terminal already has focus\n- **Dedupe**: completion 1x per session; errors 1x per message\n- **Click-to-focus**: each notification has a \"Focus terminal\" action\n\n### Diagnostics\n```bash\ntail -f ~/.local/share/opencode/log/opencode-focus.log\n```\n\n### Duplicate protection\nThe TUI plugin uses a shared KV lock (`opencode_focus_title_owner`) — only the first loaded instance writes the window title, even if an old local copy is also installed."
