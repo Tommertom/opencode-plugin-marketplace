@@ -1,0 +1,31 @@
+{
+  "name": "cloudbase",
+  "displayName": "Tencent CloudBase",
+  "description": "CloudBase MCP for OpenCode: manage Tencent CloudBase environments, cloud functions, databases, storage, hosting, and CloudRun with natural language — plus CloudBase AI Toolkit skills and rules.",
+  "categories": ["Integration", "Development", "Productivity"],
+  "authors": [
+    {
+      "name": "Tencent CloudBase",
+      "url": "https://github.com/TencentCloudBase"
+    }
+  ],
+  "license": "MIT",
+  "links": {
+    "repository": "https://github.com/TencentCloudBase/CloudBase-AI-Toolkit",
+    "homepage": "https://cloudbase.net",
+    "documentation": "https://docs.cloudbase.net/ai/cloudbase-ai-toolkit/ide-setup/opencode"
+  },
+  "opencode": {
+    "minimumVersion": "1.0.0"
+  },
+  "installation": {
+    "summary": "Add CloudBase MCP to OpenCode config, then follow the official OpenCode setup guide.",
+    "markdown": "## Installation\n\nFollow the official guide: [CloudBase OpenCode setup](https://docs.cloudbase.net/ai/cloudbase-ai-toolkit/ide-setup/opencode).\n\nAdd to your OpenCode config (for example `opencode.json`):\n\n```json\n{\n  \"mcpServers\": {\n    \"cloudbase\": {\n      \"command\": \"npx\",\n      \"args\": [\n        \"npm-global-exec@latest\",\n        \"@cloudbase/cloudbase-mcp@latest\"\n      ],\n      \"env\": {\n        \"INTEGRATION_IDE\": \"OpenCode\"\n      }\n    }\n  }\n}\n```\n\nRequires Node.js 18.15+ and a CloudBase environment. Restart OpenCode after saving the config."
+  },
+  "usage": {
+    "markdown": "## Usage\n\nAfter MCP connects, ask OpenCode in natural language, for example:\n\n- Build a WeChat Mini Program with CloudBase database and cloud functions\n- Create a booking system on CloudBase PostgreSQL with auth and admin flows\n- Enable phone-number login for a Web app via CloudBase Auth\n\nMore: [CloudBase AI Toolkit](https://docs.cloudbase.net/ai/cloudbase-ai-toolkit/) and the [OpenCode setup page](https://docs.cloudbase.net/ai/cloudbase-ai-toolkit/ide-setup/opencode)."
+  },
+  "maintained": true,
+  "lastUpdated": "2026-08-19",
+  "installableFromMarketplace": false
+}
