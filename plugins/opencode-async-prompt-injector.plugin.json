@@ -1,0 +1,28 @@
+{
+  "name": "opencode-async-prompt-injector",
+  "displayName": "OpenCode Async Prompt Injector",
+  "description": "Injects prompts into your OpenCode agent mid-task without interrupting its flow. Like a sticky note slid under the agent's nose while it's busy thinking.",
+  "categories": ["Productivity", "Utilities"],
+  "authors": [
+    {
+      "name": "Nik S.",
+      "url": "https://github.com/theOnlyBoy"
+    }
+  ],
+  "license": "MIT",
+  "links": {
+    "repository": "https://github.com/theOnlyBoy/opencode-async-prompt-injector"
+  },
+  "opencode": {
+    "minimumVersion": "1.0.0"
+  },
+  "installation": {
+    "summary": "Add the plugin to your opencode.json plugins array and restart OpenCode.",
+    "markdown": "## Installation\n\nAdd it to your [opencode.json](https://opencode.ai/docs/config/):\n\n```json\n{\n  \"plugins\": [\"opencode-async-prompt-injector\"]\n}\n```\n\nRestart OpenCode."
+  },
+  "usage": {
+    "markdown": "## Usage\n\nWhile the agent is thinking or using tools, type:\n\n```\n/inject_prompt <your message>\n```\n\nThe agent reads the message and acts on it within the current flow, without interrupting its work.\n\n**Examples:**\n\n- `/inject_prompt Hey, I just updated the tests — check them too`\n- `/inject_prompt Change of plans: postpone item #7 until the next round`\n\n> **Note:** Model compatibility varies. Some models may treat the injected message as the end of the turn and stop. If something feels off, try a different model."
+  },
+  "maintained": true,
+  "lastUpdated": "2026-08-19"
+}
