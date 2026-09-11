@@ -19,8 +19,8 @@
     "minimumVersion": "1.18.0"
   },
   "installation": {
-    "summary": "Install the npm package and register it in the global OpenCode TUI configuration.",
-    "markdown": "## Installation\n\nInstall the plugin:\n\n```sh\nopencode plugin opencode-cd@0.1.0 --global\n```\n\nAdd it to `~/.config/opencode/tui.json`:\n\n```json\n{\n  \"$schema\": \"https://opencode.ai/tui.json\",\n  \"plugin\": [\"opencode-cd@0.1.0\"]\n}\n```\n\nRestart OpenCode after changing the configuration."
+    "summary": "Install the GitHub package and register it in the global OpenCode TUI configuration.",
+    "markdown": "## Installation\n\nInstall the plugin directly from GitHub:\n\n```sh\nopencode plugin opencode-cd@git+https://github.com/artempavlov/opencode-cd.git#main --global\n```\n\nAdd it to `~/.config/opencode/tui.json`:\n\n```json\n{\n  \"$schema\": \"https://opencode.ai/tui.json\",\n  \"plugin\": [\"opencode-cd@git+https://github.com/artempavlov/opencode-cd.git#main\"]\n}\n```\n\nRestart OpenCode after changing the configuration."
   },
   "usage": {
     "markdown": "## Usage\n\nUse `Ctrl+Shift+D`, `/session-cd`, or `/cd-session` in an OpenCode session. Select an existing directory and confirm the move. Cross-project moves require Bun and the OpenCode CLI."
