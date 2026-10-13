@@ -1,0 +1,28 @@
+{
+  "name": "opencode-scratchpad",
+  "displayName": "OpenCode Scratchpad",
+  "description": "Per-project scratchpad TUI plugin: capture notes with /scratch, edit them in a modal, and preview them in the session sidebar. Notes are plain Markdown stored outside your repo.",
+  "categories": ["Productivity", "UI/UX"],
+  "authors": [
+    {
+      "name": "adikpb",
+      "url": "https://github.com/adikpb"
+    }
+  ],
+  "license": "MIT",
+  "links": {
+    "repository": "https://github.com/adikpb/opencode-scratchpad"
+  },
+  "opencode": {
+    "minimumVersion": "2.0.27"
+  },
+  "installation": {
+    "summary": "Install from npm and register the plugin in your OpenCode config.",
+    "markdown": "## Installation\n\n```bash\nnpm install opencode-scratchpad\n```\n\nRegister it in your OpenCode config:\n\n```json\n{\n  \"plugins\": [\"opencode-scratchpad\"]\n}\n```\n\nRestart OpenCode."
+  },
+  "usage": {
+    "markdown": "## Usage\n\n- `/scratch <text>` appends a line to the current project's scratchpad.\n- `/scratch` opens a modal editor (`Enter` adds a line, `Esc` saves and closes).\n- The session sidebar shows a collapsible, read-only preview that refreshes on save.\n\nNotes live at `$OPENCODE_DATA_DIR/scratchpad/<projectKey>.md`."
+  },
+  "maintained": true,
+  "lastUpdated": "2026-10-13"
+}
