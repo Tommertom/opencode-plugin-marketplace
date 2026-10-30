@@ -1,0 +1,23 @@
+{
+  "name": "opencode-tab-wrangler",
+  "displayName": "OpenCode Tab Wrangler",
+  "description": "Preview-first housekeeping for OpenCode V2 terminal tabs, with configurable idle cleanup, rules, locks, snoozes, a protection inspector, and Corral recovery. Closes tabs without deleting sessions; selected, running, and unknown-state tabs are protected. CLI-only; shared layouts have explicit limitations. Tested on Linux x64.",
+  "categories": ["Productivity", "UI/UX", "Utilities"],
+  "authors": [{"name": "Yidi Sprei", "url": "https://github.com/YidiDev"}],
+  "license": "MIT",
+  "links": {
+    "repository": "https://github.com/YidiDev/opencode-tab-wrangler",
+    "documentation": "https://github.com/YidiDev/opencode-tab-wrangler#readme"
+  },
+  "opencode": {"minimumVersion": "2.1.4"},
+  "installation": {
+    "summary": "Merge the npm package entry into the plugins array in the global OpenCode cli.json; preserve existing settings.",
+    "markdown": "Requires OpenCode 2.1.4+. This is a CLI-only V2 plugin, not a server plugin or MCP server. Merge this entry into the existing global ~/.config/opencode/cli.json plugins array; do not replace other entries.\n\n```json\n{\n  \"plugins\": [\n    {\"package\": \"opencode-tab-wrangler@1.0.1\", \"options\": {}}\n  ]\n}\n```\n\nDo not use the legacy singular plugin key or server/project opencode.json. OpenCode reloads CLI config changes automatically. Full native acceptance is tested on 2.1.4, with forward checks on 2.2.2, Linux x64."
+  },
+  "usage": {
+    "markdown": "Open /wrangler. Defaults to preview mode. Review candidate/protection reasons before enabling automatic cleanup. Set a connection namespace and acknowledge shared layouts explicitly. Corral entries reopen tabs without deleting sessions; selected tabs in other terminals are not visible to the plugin."
+  },
+  "maintained": true,
+  "lastUpdated": "2026-10-30",
+  "installableFromMarketplace": false
+}
