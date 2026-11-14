@@ -1,0 +1,36 @@
+{
+  "name": "opencode-pixel-guild",
+  "displayName": "OpenCode Pixel Guild",
+  "description": "Real-time 2D RPG workshop and dungeon visualizer for live OpenCode V2 sessions, subagents, tool calls, and Git commits.",
+  "categories": [
+    "UI/UX",
+    "Productivity",
+    "Development",
+    "Debugging"
+  ],
+  "authors": [
+    {
+      "name": "nirtus",
+      "url": "https://github.com/nirtus"
+    }
+  ],
+  "license": "MIT",
+  "links": {
+    "repository": "https://github.com/nirtus/opencode-pixel-guild",
+    "homepage": "https://github.com/nirtus/opencode-pixel-guild",
+    "documentation": "https://github.com/nirtus/opencode-pixel-guild#readme"
+  },
+  "opencode": {
+    "minimumVersion": "1.0.0"
+  },
+  "installation": {
+    "summary": "Run with Docker Compose (npm run docker:up) or Node.js 22+ (npm start) on port 4310 and pair via opencode pair.",
+    "markdown": "## Installation\n\n### Option 1: Docker Compose (Recommended)\n\n```bash\ngit clone https://github.com/nirtus/opencode-pixel-guild.git\ncd opencode-pixel-guild\nnpm run docker:up\n```\n\n### Option 2: Node.js 22+ (Zero External Dependencies)\n\n```bash\ngit clone https://github.com/nirtus/opencode-pixel-guild.git\ncd opencode-pixel-guild\nnpm start\n```\n\nOpen `http://127.0.0.1:4310` in your browser and pair your local or remote OpenCode V2 host."
+  },
+  "usage": {
+    "markdown": "Pair local or remote OpenCode V2 machines using `opencode pair --remote` (QR scanner or link) or click **Detect & Pair Local OpenCode**. Watch root sessions and subagents craft features at indoor preparation stations, fight Bug Monsters in the Dungeon Wilds during failing test/debug turns, and manage prompts, permissions, questions, and Git commits from desktop or mobile."
+  },
+  "maintained": true,
+  "lastUpdated": "2026-11-14",
+  "installableFromMarketplace": false
+}
