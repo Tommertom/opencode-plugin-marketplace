@@ -1,0 +1,33 @@
+{
+  "name": "finshield-opencode",
+  "displayName": "FinShield for OpenCode Desktop",
+  "description": "Windows AppContainer integration for OpenCode Desktop V2. Adds native component setup, Windows authorization, updates and protection status in Settings > FinShield. Targets Windows x64 and OpenCode Desktop/SDK 2.3.0.",
+  "categories": [
+    "Integration",
+    "Utilities"
+  ],
+  "authors": [
+    {
+      "name": "Finogeeks",
+      "url": "https://github.com/finogeeks"
+    }
+  ],
+  "license": "LicenseRef-FinShield",
+  "links": {
+    "repository": "https://github.com/finogeeks/finsafe",
+    "documentation": "https://github.com/finogeeks/finsafe/blob/main/integrations/opencode/windows/README.md"
+  },
+  "opencode": {
+    "minimumVersion": "2.3.0"
+  },
+  "installation": {
+    "summary": "Install the npm package with OpenCode Desktop's bundled CLI, then complete setup in Settings > FinShield.",
+    "markdown": "## Installation\n\nTarget: Windows x64 and OpenCode Desktop/SDK 2.3.0 (V2).\n\nSave your work and exit OpenCode. For the default per-user Desktop installation, run this in PowerShell:\n\n```powershell\n& \"$env:LOCALAPPDATA\\Programs\\ai.opencode.desktop\\resources\\opencode-cli.exe\" plugin add '@finogeeks2026/finshield-opencode'\n```\n\nFor a different installation location, use that installation's `resources\\opencode-cli.exe`.\n\nOpen OpenCode and go to **Settings > FinShield**. Follow the prompts for native component setup and Windows authorization. When preparation is ready, save your work, exit OpenCode and manually open it again. Confirm the current protection status in Settings > FinShield.\n\n[Installation guide](https://github.com/finogeeks/finsafe/blob/main/integrations/opencode/windows/README.md) · [npm package](https://www.npmjs.com/package/@finogeeks2026/finshield-opencode)"
+  },
+  "usage": {
+    "markdown": "## Protection and status\n\nFinShield replaces the desktop backend Host with a Windows AppContainer Host while retaining Desktop Main. The FinShield settings page provides native component setup, authorization, updates and protection status.\n\n## License\n\n`LicenseRef-FinShield` refers to the [product license supplied with this integration](https://github.com/finogeeks/finsafe/blob/main/integrations/opencode/windows/LICENSE.rtf). The npm package declares `SEE LICENSE IN LICENSE.rtf`. The public repository contains releases, documentation and integration files; the FinSAFE engine source is private.\n\n[Report a problem](https://github.com/finogeeks/finsafe/issues)."
+  },
+  "maintained": true,
+  "lastUpdated": "2026-11-24",
+  "installableFromMarketplace": false
+}
