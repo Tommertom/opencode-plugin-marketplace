@@ -1,0 +1,33 @@
+{
+  "name": "opencode-token-metrics",
+  "displayName": "OpenCode Token Metrics",
+  "description": "A live throughput meter for the OpenCode TUI, for V1 and V2. It renders beside the session prompt as a VU-style time-series of generation speed, with average, peak, trend, and time-to-first-token.",
+  "categories": [
+    "Productivity",
+    "Utilities"
+  ],
+  "authors": [
+    {
+      "name": "Jash Jacob",
+      "url": "https://github.com/jashjacob"
+    }
+  ],
+  "license": "MIT",
+  "links": {
+    "repository": "https://github.com/jashjacob/opencode-token-metrics",
+    "homepage": "https://jashjacob.github.io/opencode-token-metrics/",
+    "documentation": "https://github.com/jashjacob/opencode-token-metrics#readme"
+  },
+  "opencode": {
+    "minimumVersion": "1.4.3"
+  },
+  "installation": {
+    "summary": "Add the npm package to your OpenCode plugins list (V2) or install it with the V1 plugin CLI.",
+    "markdown": "## Installation\n\nOne package serves OpenCode V1 and V2. Install it the way your OpenCode version expects.\n\n### V2 (2.x)\n\nAdd it to the `plugins` array in `~/.config/opencode/opencode.jsonc` or `opencode.json`:\n\n```jsonc\n{\n  \"plugins\": [\"opencode-token-metrics\"]\n}\n```\n\nTo pass options, put the plugin in `~/.config/opencode/cli.json` instead:\n\n```jsonc\n{\n  \"plugins\": [\n    { \"package\": \"opencode-token-metrics\", \"options\": { \"vuColumns\": 20, \"vuScale\": \"fixed\", \"vuFullTps\": 80 } }\n  ]\n}\n```\n\n`cli.json` is the CLI-side config, so options there reach the TUI plugin. Options written in `opencode.json` are delivered to server plugins and do not reach the TUI. Keep an entry in only one of the two files. Restart the TUI afterwards.\n\n### V1 (1.x)\n\n```bash\nopencode plugin opencode-token-metrics -g\n```\n\nThis installs the package from npm and adds it to `~/.config/opencode/tui.json`. TUI plugins belong in `tui.json`, not `opencode.json`.\n\nManual setup:\n\n```jsonc\n{\n  \"plugin\": [\"opencode-token-metrics\"]\n}\n```\n"
+  },
+  "usage": {
+    "markdown": "## Usage\n\nOnce installed, the meter renders beside the OpenCode TUI prompt as a VU-style time-series of generation speed:\n\n```\ntok/s \u2583\u2586\u2587\u2587\u2588\u2586\u2584 42.0 \u25b215% \u00b7 avg 38.2 \u00b7 pk 45.0 \u00b7 ttft 0.8s\n```\n\nIt shows live tokens per second, a recent speed graph, average and peak rate, trend, time to first token, and prompt-cache hit rate when the provider reports it. When a turn ends, the graph and totals freeze until the next turn.\n\nThis is a live speed meter, not a spending dashboard or long-term usage history.\n\nOptions (same keys for V1 and V2) include `vuColumns`, `vuScale`, `vuFullTps`, `slowTps`, `fastTps`, `showVu`, `showTrend`, `showAvg`, `showPeak`, `showTtft`, `showCache`, and `alwaysShow`. See the [README](https://github.com/jashjacob/opencode-token-metrics#options) for defaults.\n"
+  },
+  "maintained": true,
+  "lastUpdated": "2026-11-24"
+}
