@@ -1,7 +1,7 @@
 {
   "name": "finshield-opencode",
   "displayName": "FinShield for OpenCode Desktop",
-  "description": "Windows AppContainer integration for OpenCode Desktop V2. Adds native component setup, Windows authorization, updates and protection status in Settings > FinShield. Targets Windows x64 and OpenCode Desktop/SDK 2.3.0.",
+  "description": "Windows AppContainer sandbox integration for OpenCode Desktop V2. Adds native component setup, Windows authorization, updates and protection status in Settings > FinShield. Targets Windows x64 and OpenCode Desktop/SDK 2.3.0.",
   "categories": [
     "Integration",
     "Utilities"
@@ -28,6 +28,6 @@
     "markdown": "## Protection and status\n\nFinShield replaces the desktop backend Host with a Windows AppContainer Host while retaining Desktop Main. The FinShield settings page provides native component setup, authorization, updates and protection status.\n\n## License\n\n`LicenseRef-FinShield` refers to the [product license supplied with this integration](https://github.com/finogeeks/finsafe/blob/main/integrations/opencode/windows/LICENSE.rtf). The npm package declares `SEE LICENSE IN LICENSE.rtf`. The public repository contains releases, documentation and integration files; the FinSAFE engine source is private.\n\n[Report a problem](https://github.com/finogeeks/finsafe/issues)."
   },
   "maintained": true,
-  "lastUpdated": "2026-11-24",
+  "lastUpdated": "2026-11-25",
   "installableFromMarketplace": false
 }
